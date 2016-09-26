@@ -13,10 +13,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //无数值
         TextView tv = (TextView) findViewById(R.id.tv);
         IBadgeTextView mBadgeView=new IBadgeTextView(this);
         mBadgeView.setTargetView(tv);
-        mBadgeView.setBadgeCount(29);
-
+        mBadgeView.setBadgeCount(0);
+        //两位数
+        TextView tv2 = (TextView) findViewById(R.id.tv2);
+        IBadgeTextView mBadgeView2=new IBadgeTextView(this);
+        mBadgeView2.setTargetView(tv2);
+        mBadgeView2.setBadgeCount(92)
+                .setmDefaultRightPadding(20)
+                .setmDefaultTopPadding(20);
     }
 }
