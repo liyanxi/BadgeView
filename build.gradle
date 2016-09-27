@@ -17,9 +17,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven{
-            url 'https://dl.bintray.com/liyanxi/maven/'
-        }
     }
     //解决android support包找不到问题
     tasks.withType(Javadoc).all { enabled = false }
