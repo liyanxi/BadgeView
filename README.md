@@ -1,6 +1,6 @@
 ### BadgeView
 add badgeview to any targetView in Android
-&
+<br>
 <img src="gif/pre_pic.png" width = "320" height = "560" alt="图片名称" align=center />
 
 ### Usage
@@ -55,13 +55,13 @@ Add dependencies in build.gradle.
 ### License
 ```
  Copyright 2016 itingchunyu
-    &
+    <br>
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
-    &
+    <br>
  http://www.apache.org/licenses/LICENSE-2.0
-    &
+    <br>
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
