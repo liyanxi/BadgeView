@@ -1,6 +1,7 @@
 ### BadgeView
 add badgeview to any targetView in Android
-<img src="gif/pre_pic.png" width = "320" height = "640" alt="图片名称" align=center />
+&
+<img src="gif/pre_pic.png" width = "320" height = "560" alt="图片名称" align=center />
 
 ### Usage
 
