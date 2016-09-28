@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.0"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -33,7 +33,7 @@ ext {
     libraryDescription = 'add badgeview to any targetview  in Android'
     siteUrl = 'https://github.com/liyanxi/BadgeView'
     gitUrl = 'https://github.com/liyanxi/BadgeView.git'
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
     developerId = 'itingchunyu'
     developerName = 'itingchunyu'
     developerEmail = 'itingchunyu@163.com'
