@@ -1,7 +1,8 @@
 ### BadgeView
 add badgeview to any targetView in Android
+![效果图](gif/pre_pic.png)
 
-## Usage
+### Usage
 
 ### Step1
 Add dependencies in build.gradle.
@@ -21,6 +22,16 @@ Add dependencies in build.gradle.
             .setmDefaultRightPadding(20)//右视图距离
             .setmDefaultTopPadding(20);//上视图距离
 ```
+#### IBadgeView XML attributes
+```
+<declare-styleable name="IBadgeView">
+        <attr name="badge_padding_top" format="dimension" />
+        <attr name="badge_padding_right" format="dimension" />
+        <attr name="badge_count" format="integer" />
+        <attr name="badge_none_show" format="boolean" />
+        <attr name="badge_color" format="color" />
+    </declare-styleable>
+```
 ```
     //第二种方式:布局中直接引用(仅作为TextView是用)
     <com.itingchunyu.badgeview.IBadgeTextView
@@ -34,8 +45,6 @@ Add dependencies in build.gradle.
         app:badge_padding_right="5dp"
         app:badge_padding_top="5dp"/>
 ```
-### 预览图
-![效果图](gif/pre_pic.png)
 ### 参考实例代码
 
 <https://github.com/stefanjauker/BadgeView>
