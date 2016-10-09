@@ -38,5 +38,6 @@
         app:badge_count="9"
         android:textSize="30dp"
         app:badge_padding_right="5dp"
-        app:badge_padding_top="5dp"/>
+        app:badge_padding_top="5dp"
+        app:badge_none_show="true"/>
 </LinearLayout>

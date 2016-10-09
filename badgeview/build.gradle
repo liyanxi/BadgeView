@@ -33,7 +33,7 @@ ext {
     libraryDescription = 'add badgeview to any targetview  in Android'
     siteUrl = 'https://github.com/liyanxi/BadgeView'
     gitUrl = 'https://github.com/liyanxi/BadgeView.git'
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
     developerId = 'itingchunyu'
     developerName = 'itingchunyu'
     developerEmail = 'itingchunyu@163.com'

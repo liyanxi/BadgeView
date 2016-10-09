@@ -31,32 +31,56 @@ public class IBadgeView {
     private Paint mPaint;
     private Paint mTextPaint;
 
-    /** 默认红点半径基数 unit dp */
+    /**
+     * 默认红点半径基数 unit dp
+     */
     private int mDefaultRadiusDp = 8;
-    /** 默认红点半径基数 unit dp */
-    private int mDefaultRadius =0;
-    /** 默认背景颜色 */
+    /**
+     * 默认红点半径基数 unit dp
+     */
+    private int mDefaultRadius = 0;
+    /**
+     * 默认背景颜色
+     */
     private int mDefaultBackgroundColor = Color.parseColor("#FE6270");
-    /** 默认字体颜色 */
+    /**
+     * 默认字体颜色
+     */
     private int mDefaultTextColor = Color.WHITE;
-    /** 默认字体大小 unit sp */
+    /**
+     * 默认字体大小 unit sp
+     */
     private int mDefaultTextSize = 11;
-    /** 展示数量 */
+    /**
+     * 展示数量
+     */
     private int mCount;
-    /** 是否显示红点 */
+    /**
+     * 是否显示红点
+     */
     boolean isShowBadge = true;
-    /** 红点宽度 */
+    /**
+     * 红点宽度
+     */
     private int mBadgeWidth;
-    /** 红点高度 */
+    /**
+     * 红点高度
+     */
     private int mBadgeHeight;
     private RectF rectF;
-    /** 视图宽度 */
+    /**
+     * 视图宽度
+     */
     private int mViewWidth;
     @SuppressWarnings("unused")
     private int mViewHeight;
-    /** 红点距离视图上边距 */
+    /**
+     * 红点距离视图上边距
+     */
     private int mDefaultTopPadding;
-    /** 红点距离视图右边距 */
+    /**
+     * 红点距离视图右边距
+     */
     private int mDefaultRightPadding;
     private View mView;//依附view
     private Context mContext;
@@ -128,15 +152,17 @@ public class IBadgeView {
      * @param canvas
      */
     protected void draw(Canvas canvas) {
-        if (mCount < 10) {//圆
-            canvas.drawCircle(mViewWidth - mBadgeWidth / 2 - mDefaultRightPadding, mBadgeHeight / 2 + mDefaultTopPadding, mDefaultRadius, mPaint);
-        } else {//椭圆
-            canvas.drawRoundRect(rectF, (int) (mBadgeWidth * 0.6), (int) (mBadgeWidth * 0.6), mPaint);
-        }
-        if (mCount > 0) {
-            Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
-            int baseline = (mBadgeHeight + 0 - fontMetrics.bottom - fontMetrics.top) / 2;
-            canvas.drawText(mCount + "", mViewWidth - mBadgeWidth / 2 - mDefaultRightPadding, baseline + mDefaultTopPadding, mTextPaint);
+        if (isShowBadge) {
+            if (mCount < 10) {//圆
+                canvas.drawCircle(mViewWidth - mBadgeWidth / 2 - mDefaultRightPadding, mBadgeHeight / 2 + mDefaultTopPadding, mDefaultRadius, mPaint);
+            } else {//椭圆
+                canvas.drawRoundRect(rectF, (int) (mBadgeWidth * 0.6), (int) (mBadgeWidth * 0.6), mPaint);
+            }
+            if (mCount > 0) {
+                Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
+                int baseline = (mBadgeHeight + 0 - fontMetrics.bottom - fontMetrics.top) / 2;
+                canvas.drawText(mCount + "", mViewWidth - mBadgeWidth / 2 - mDefaultRightPadding, baseline + mDefaultTopPadding, mTextPaint);
+            }
         }
     }
 
@@ -185,6 +211,7 @@ public class IBadgeView {
         mView.invalidate();
         return this;
     }
+
     /**
      * 设置颜色
      *
@@ -199,6 +226,7 @@ public class IBadgeView {
 
     /**
      * 设置红点的半径
+     *
      * @param mDefaultRadius 默认值(无数字):6dp
      */
     public IBadgeView setmDefaultRadius(int mDefaultRadius) {
@@ -209,6 +237,7 @@ public class IBadgeView {
 
     /**
      * 设置默认数字颜色值
+     *
      * @param mDefaultTextColor
      */
     public IBadgeView setmDefaultTextColor(int mDefaultTextColor) {
@@ -219,6 +248,7 @@ public class IBadgeView {
 
     /**
      * 设置红点视图上边距
+     *
      * @param mDefaultTopPadding
      */
     public IBadgeView setmDefaultTopPadding(int mDefaultTopPadding) {
@@ -229,6 +259,7 @@ public class IBadgeView {
 
     /**
      * 设置红点视图右边距
+     *
      * @param mDefaultRightPadding
      */
     public IBadgeView setmDefaultRightPadding(int mDefaultRightPadding) {
@@ -236,6 +267,7 @@ public class IBadgeView {
         mView.invalidate();
         return this;
     }
+
     /**
      * convert dip to px
      *
@@ -254,9 +286,9 @@ public class IBadgeView {
      */
     public int getCircleHeight() {
         if (mContext.getResources().getDisplayMetrics().densityDpi <= DisplayMetrics.DENSITY_HIGH) {
-            return dip2px(mDefaultRadiusDp+2);
+            return dip2px(mDefaultRadiusDp + 2);
         } else {
-            return dip2px(mDefaultRadiusDp*2);
+            return dip2px(mDefaultRadiusDp * 2);
         }
     }
 
@@ -267,9 +299,9 @@ public class IBadgeView {
      */
     public int getRectWidth() {
         if (mContext.getResources().getDisplayMetrics().densityDpi <= DisplayMetrics.DENSITY_HIGH) {
-            return dip2px(mDefaultRadiusDp*2);
+            return dip2px(mDefaultRadiusDp * 2);
         } else {
-            return dip2px(mDefaultRadiusDp*2+9);
+            return dip2px(mDefaultRadiusDp * 2 + 9);
         }
     }
 
@@ -282,7 +314,7 @@ public class IBadgeView {
         if (mContext.getResources().getDisplayMetrics().densityDpi <= DisplayMetrics.DENSITY_HIGH) {
             return dip2px(mDefaultRadiusDp);
         } else {
-            return dip2px(mDefaultRadiusDp+1);
+            return dip2px(mDefaultRadiusDp + 1);
         }
     }
 }

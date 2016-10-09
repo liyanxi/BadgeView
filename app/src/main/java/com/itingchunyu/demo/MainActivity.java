@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         IBadgeTextView mBadgeView=new IBadgeTextView(this);
         mBadgeView.setTargetView(tv);
         mBadgeView.setBadgeCount(0);
+        mBadgeView.setBadgeShown(true);
         //两位数
         TextView tv2 = (TextView) findViewById(R.id.tv2);
         IBadgeTextView mBadgeView2=new IBadgeTextView(this);
