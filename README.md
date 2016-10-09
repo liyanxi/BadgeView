@@ -9,7 +9,7 @@ add badgeview to any targetView in Android
 Add dependencies in build.gradle.
 ```
     dependencies {
-           compile 'com.itingchunyu.badgeview:badgeview:1.0.2'
+           compile 'com.itingchunyu.badgeview:badgeview:1.0.4'
     }
 ```
 ### Step2
