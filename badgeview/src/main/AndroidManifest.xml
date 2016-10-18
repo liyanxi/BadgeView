@@ -6,6 +6,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <!-- 使用AutoLayout时设置设计稿的宽高 -->
+        <meta-data
+            android:name="design_width"
+            android:value="640" />
+        <meta-data
+            android:name="design_height"
+            android:value="1336" />
     </application>
 
 </manifest>

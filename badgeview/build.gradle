@@ -22,6 +22,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.zhy:autolayout:1.4.5'
 }
 
 ext {
@@ -33,7 +34,7 @@ ext {
     libraryDescription = 'add badgeview to any targetview  in Android'
     siteUrl = 'https://github.com/liyanxi/BadgeView'
     gitUrl = 'https://github.com/liyanxi/BadgeView.git'
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.5'
     developerId = 'itingchunyu'
     developerName = 'itingchunyu'
     developerEmail = 'itingchunyu@163.com'

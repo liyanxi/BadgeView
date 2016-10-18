@@ -9,23 +9,13 @@ add badgeview to any targetView in Android
 Add dependencies in build.gradle.
 ```
     dependencies {
-           compile 'com.itingchunyu.badgeview:badgeview:1.0.4'
+           compile 'com.itingchunyu.badgeview:badgeview:1.0.5'
     }
 ```
-### Step2
-使用样例
+### BadgeViewUtil工具类
+XML attributes自定义属性（BadgeTextView、BaseBadgeView）可使用
 ```
-    //第一种方式:可依附任意view(无限制)
-    TextView tv = (TextView) findViewById(R.id.tv);
-    IBadgeTextView mBadgeView=new IBadgeTextView(this);
-    mBadgeView.setTargetView(tv);//设置目标targetView(可任意:此处只做演示)
-    mBadgeView2.setBadgeCount(92)//数量(0:表示小红点)
-            .setmDefaultRightPadding(20)//右视图距离
-            .setmDefaultTopPadding(20);//上视图距离
-```
-#### IBadgeView XML attributes
-```
-<declare-styleable name="IBadgeView">
+<declare-styleable name="BadgeViewUtil">
         <attr name="badge_padding_top" format="dimension" />
         <attr name="badge_padding_right" format="dimension" />
         <attr name="badge_count" format="integer" />
@@ -33,19 +23,52 @@ Add dependencies in build.gradle.
         <attr name="badge_color" format="color" />
     </declare-styleable>
 ```
+### Step2
+使用样例
+```
+    //第一种方式:可依附任意view(无限制:初始定位右上角)
+    TextView tv = (TextView) findViewById(R.id.tv);
+    IBadgeTextView mBadgeView=new IBadgeTextView(this);
+    mBadgeView.setTargetView(tv);//设置目标targetView(可任意:此处只做演示)
+    mBadgeView2.setBadgeCount(92)//数量(0:表示小红点)
+            .setmDefaultRightPadding(20)//右依附视图距离
+            .setmDefaultTopPadding(20);//上依附视图距离
+```
 ```
     //第二种方式:布局中直接引用(仅作为TextView是用)
-    <com.itingchunyu.badgeview.IBadgeTextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:text="Hello World"
-        app:badge_count="9"
-        android:textSize="30dp"
-        app:badge_padding_right="5dp"
-        app:badge_padding_top="5dp"/>
+        android:layout_weight="1"
+        android:background="#55ff0000"
+        android:gravity="center">
+
+        <!-- 目标View -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#999"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:text="" />
+
+        <!-- 小红点  -->
+        <com.itingchunyu.badgeview.BaseBadgeView
+            android:id="@+id/btv_null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            app:badge_count="10"
+            app:badge_none_show="true" />
+
+    </FrameLayout>
+
 ```
+ 预知详情使用请参考demo
 ### 参考实例代码
 
 <https://github.com/stefanjauker/BadgeView>

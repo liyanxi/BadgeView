@@ -23,30 +23,32 @@ import android.widget.FrameLayout;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
+import com.zhy.autolayout.AutoFrameLayout;
+
 /**
  * Created by liyanxi on 16/9/22.
  * 使用详解:
  * 1:可当TextView使用,在xml中直接引用(局限:仅限文本控件)
  * 2:可设置到任意View,作为目标小红点使用,设置目标View:setTargetView();
  */
-public class IBadgeTextView extends TextView implements IBadgeViewImpl {
+public class BadgeTextView extends TextView implements IBadgeView {
 
     /**
      * 红点
      */
-    private IBadgeView mBaseBadgeView;
+    private BadgeViewUtil mBaseBadgeView;
 
-    public IBadgeTextView(Context context) {
+    public BadgeTextView(Context context) {
         this(context, null);
     }
 
-    public IBadgeTextView(Context context, AttributeSet attrs) {
+    public BadgeTextView(Context context, AttributeSet attrs) {
         this(context, attrs,-1);
     }
 
-    public IBadgeTextView(Context context, AttributeSet attrs, int defStyle) {
+    public BadgeTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        mBaseBadgeView = new IBadgeView(this, context,attrs);
+        mBaseBadgeView = new BadgeViewUtil(this, context,attrs);
     }
 
     @Override
@@ -62,27 +64,27 @@ public class IBadgeTextView extends TextView implements IBadgeViewImpl {
     }
 
     @Override
-    public IBadgeView setBadgeCount(int count) {
+    public BadgeViewUtil setBadgeCount(int count) {
         return mBaseBadgeView.setCount(count);
     }
 
     @Override
-    public IBadgeView setBadgeShown(boolean isShowBadge) {
+    public BadgeViewUtil setBadgeShown(boolean isShowBadge) {
         return mBaseBadgeView.setShown(isShowBadge);
     }
 
     @Override
-    public IBadgeView setBadgeColor(int color) {
+    public BadgeViewUtil setBadgeColor(int color) {
         return mBaseBadgeView.setBackgroundColor(color);
     }
 
     @Override
-    public IBadgeView setmDefaultTopPadding(int mDefaultTopPadding) {
+    public BadgeViewUtil setmDefaultTopPadding(int mDefaultTopPadding) {
         return mBaseBadgeView.setmDefaultTopPadding(mDefaultTopPadding);
     }
 
     @Override
-    public IBadgeView setmDefaultRightPadding(int mDefaultRightPadding) {
+    public BadgeViewUtil setmDefaultRightPadding(int mDefaultRightPadding) {
         return mBaseBadgeView.setmDefaultRightPadding(mDefaultRightPadding);
     }
 
@@ -112,8 +114,8 @@ public class IBadgeTextView extends TextView implements IBadgeViewImpl {
             return;
         }
 
-        if (target.getParent() instanceof FrameLayout) {
-            ((FrameLayout) target.getParent()).addView(this);
+        if (target.getParent() instanceof AutoFrameLayout) {
+            ((AutoFrameLayout) target.getParent()).addView(this);
 
         } else if (target.getParent() instanceof ViewGroup) {
             // use a new FrameLayout container for adding badge view
@@ -121,12 +123,14 @@ public class IBadgeTextView extends TextView implements IBadgeViewImpl {
             int groupIndex = parentContainer.indexOfChild(target);
             parentContainer.removeView(target);
 
-            FrameLayout badgeContainer = new FrameLayout(getContext());
+            AutoFrameLayout badgeContainer = new AutoFrameLayout(getContext());
             ViewGroup.LayoutParams parentLayoutParams = target.getLayoutParams();
 
             badgeContainer.setLayoutParams(parentLayoutParams);
-            target.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            target.setLayoutParams(params);
 
             parentContainer.addView(badgeContainer, groupIndex, parentLayoutParams);
             badgeContainer.addView(target);

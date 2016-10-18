@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BadgeView</string>
+    <string name="use_desc">使用说明\n 底部按红色透明区分五块，灰色代表控件本身背景\n 1：前三块View:BadgeTextView(可绑定任意目标targetView右上角，根据自身需要设置距右上角的距离（使用控件自定义属性padding）)
+    \n 2:后两块View：BaseBadgeView(独立小红点，可在xml布局中直接引用，按普通控件定位)</string>
 </resources>
