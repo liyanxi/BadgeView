@@ -11,7 +11,13 @@ Add dependencies in build.gradle.
     dependencies {
            compile 'com.itingchunyu.badgeview:badgeview:1.0.5'
     }
+
 ```
+#### **注释：v1.0.5版本引用名称作如下修改**
+1. IBadgeTextView===>BadgeTextView
+2. IBadgeViewImpl ===> IBadgeView
+3. IBadgeView ===> BadgeViewUtil
+5. 以上三个类内部实现不变
 ### BadgeViewUtil工具类
 XML attributes自定义属性（BadgeTextView、BaseBadgeView）可使用
 ```
