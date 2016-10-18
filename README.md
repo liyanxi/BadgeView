@@ -34,7 +34,7 @@ XML attributes自定义属性（BadgeTextView、BaseBadgeView）可使用
 ```
     //第一种方式:可依附任意view(无限制:初始定位右上角)
     TextView tv = (TextView) findViewById(R.id.tv);
-    IBadgeTextView mBadgeView=new IBadgeTextView(this);
+    BadgeTextView mBadgeView=new BadgeTextView(this);
     mBadgeView.setTargetView(tv);//设置目标targetView(可任意:此处只做演示)
     mBadgeView2.setBadgeCount(92)//数量(0:表示小红点)
             .setmDefaultRightPadding(20)//右依附视图距离
