@@ -270,8 +270,8 @@ public class BadgeViewUtil {
      *
      * @param mDefaultRadius 默认值(无数字):6dp
      */
-    public BadgeViewUtil setmDefaultRadius(int mDefaultRadius) {
-        this.mDefaultRadius = mDefaultRadius;
+    public BadgeViewUtil setDefaultRadius(int mDefaultRadius) {
+        this.mDefaultRadiusDp = mDefaultRadius;
         mView.invalidate();
         return this;
     }
